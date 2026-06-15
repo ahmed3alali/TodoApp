@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* Workshop app — shared design tokens */
+:root {
+  --bg-start: #0f172a;
+  --bg-end: #1e1b4b;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+}
+
+body {
+  @apply min-h-screen text-slate-800 antialiased;
+  background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 50%, #312e81 100%);
+  background-attachment: fixed;
+}
+
+/* Reusable card style */
+.glass-card {
+  @apply bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl shadow-black/10 border border-white/20;
+}
+
+/* Primary button */
+.btn-primary {
+  @apply bg-indigo-600 text-white font-medium rounded-xl px-5 py-2.5
+         hover:bg-indigo-700 active:scale-[0.98] transition-all
+         disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100;
+}
+
+/* Secondary / ghost button */
+.btn-ghost {
+  @apply text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-lg px-3 py-1.5
+         text-sm font-medium transition-colors;
+}
+
+/* Text input */
+.input-field {
+  @apply w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl
+         focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent
+         placeholder:text-slate-400 transition-shadow;
+}
+
+/* Spinner for loading states */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
